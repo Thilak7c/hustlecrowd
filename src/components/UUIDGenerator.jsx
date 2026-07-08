@@ -1,0 +1,410 @@
+import React, { useState, useCallback } from 'react';
+import { Copy, Check, Hash, RefreshCw, ChevronDown } from 'lucide-react';
+
+// Accordion Component
+function Accordion({ items }) {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleItem = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <div className="bg-[#353739] border-none rounded-2xl shadow-2xl p-8">
+      <h2 className="text-xl font-bold text-white mb-6">Learn More About UUIDs</h2>
+      <div className="space-y-0">
+        {items.map((item, index) => (
+          <div key={index} className="border-b border-gray-700/50 last:border-b-0">
+            <button
+              onClick={() => toggleItem(index)}
+              className="w-full py-4 flex items-center justify-between text-left hover:text-white transition-colors"
+            >
+              <h3 className="text-white">{item.title}</h3>
+              <ChevronDown 
+                className={`w-5 h-5 text-gray-400 transition-transform duration-200 flex-shrink-0 ml-4 ${
+                  openIndex === index ? 'rotate-180' : ''
+                }`}
+              />
+            </button>
+            {openIndex === index && (
+              <div className="pb-4 space-y-3 text-sm text-gray-400 leading-relaxed">
+                {item.content}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Supporting Components
+function CodeBlock({ children }) {
+  return (
+    <pre className="bg-[#1f2123] rounded-lg p-4 text-sm font-mono text-gray-200 overflow-x-auto">
+      <code>{children}</code>
+    </pre>
+  );
+}
+
+export default function UUIDGenerator() {
+  const [uuid, setUuid] = useState('');
+  const [copied, setCopied] = useState(false);
+
+  // Example accordion content - replace with your actual content
+  const accordionContent = [
+    {
+      title: "What is a UUID (Universally Unique Identifier)?",
+      content: (
+         <>
+          <p>
+            A UUID (Universally Unique Identifier) is a 128-bit value used to uniquely
+            identify information across systems, databases, and applications without
+            requiring a central authority. UUIDs are designed to be globally unique,
+            meaning the probability of generating the same UUID twice is so small that
+            it can be ignored for almost all practical applications.
+          </p>
+          <p>
+            UUIDs are commonly used in software development when identifiers need to be
+            generated independently across multiple systems, services, or clients.
+            Unlike auto-incrementing numeric IDs, UUIDs do not rely on a shared database
+            counter, making them ideal for distributed systems, microservices, and
+            client-side ID generation.
+          </p>
+          <p>
+            Each UUID is typically represented as a 36-character string, including hyphens,
+            and is standardized under RFC 4122.
+          </p>
+         </>
+      )
+    },
+    {
+      title: "UUID v4 Explained (Random UUIDs)",
+      content: (
+        <>
+          <p>
+            This UUID Generator creates UUID version 4 (UUID v4). UUID v4 is based
+            entirely on random numbers generated using a cryptographically secure random
+            source. It does not contain timestamps, MAC addresses, or system identifiers.
+          </p>
+
+          <p>A UUID v4 follows this format:</p>
+
+          <CodeBlock>xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx</CodeBlock>
+
+          <p>Where:</p>
+          <ul className="list-disc list-inside space-y-2">
+            <li>x is a hexadecimal digit (0–9, a–f)</li>
+            <li>4 indicates the UUID version</li>
+            <li>y indicates the variant (usually 8, 9, a, or b)</li>
+          </ul>
+
+          <p>
+            Because UUID v4 relies on randomness, it is safe to generate on the client
+            side using modern browser cryptographic APIs. The probability of collision
+            is astronomically low, even at massive scale.
+          </p>
+
+          <p>
+            This tool uses your browser's built-in cryptographic API to generate RFC 4122-compliant
+            UUID v4 values instantly, without sending any data to a server.
+          </p>
+        </>
+      )
+    },
+    {
+      title: "UUID vs GUID: What's the Difference?",
+      content: (
+        <>
+          <p>
+            UUID and GUID are often used interchangeably, but there is a small historical distinction.
+          </p>
+
+          <ul className="list-disc list-inside space-y-2">
+            <li>UUID is the standardized term defined by RFC 4122.</li>
+            <li>GUID (Globally Unique Identifier) originated from Microsoft's ecosystem.</li>
+          </ul>
+
+          <p>In practice:</p>
+          <ul className="list-disc list-inside space-y-2">
+            <li>A GUID generated by modern systems follows the UUID standard.</li>
+            <li>The format and uniqueness guarantees are effectively the same.</li>
+          </ul>
+
+          <p>
+            For most developers, there is no functional difference between a UUID and a GUID.
+            When documentation or APIs mention GUIDs, they are usually referring to UUID-compatible identifiers.
+          </p> 
+        </>
+      )
+    },
+    {
+      title: "When Should You Use UUIDs?",
+      content: (
+        <>
+          <p>
+            UUIDs are especially useful in scenarios where coordination between systems
+            is difficult or impossible.
+          </p>
+
+          <p>Common use cases include:</p>
+          <ul className="list-disc list-inside space-y-2">
+            <li>Primary keys in distributed databases</li>
+            <li>Client-side generated IDs before data reaches a backend</li>
+            <li>Identifiers for public APIs</li>
+            <li>Object IDs in microservices architectures</li>
+            <li>Temporary identifiers for offline-first applications</li>
+          </ul>
+
+          <p>
+            UUIDs help avoid ID collisions when multiple systems generate identifiers
+            independently. This makes them a strong alternative to auto-incrementing
+            integers in many modern architectures.
+          </p>
+        </>
+      )
+    },
+    {
+      title: "UUIDs vs Auto-Increment IDs",
+      content: (
+        <>
+          <p>
+            Choosing between UUIDs and auto-increment IDs depends on your use case.
+          </p>
+
+          <p><strong>Auto-increment IDs:</strong></p>
+          <ul className="list-disc list-inside space-y-2">
+            <li>Simple and compact</li>
+            <li>Easy to read</li>
+            <li>Require a centralized database counter</li>
+            <li>Can expose record counts or sensitive sequencing information</li>
+          </ul>
+
+          <p><strong>UUIDs:</strong></p>
+          <ul className="list-disc list-inside space-y-2">
+            <li>Can be generated anywhere</li>
+            <li>Do not reveal ordering or volume</li>
+            <li>Safer for public exposure</li>
+            <li>Larger in size and less human-readable</li>
+          </ul>
+
+          <p>
+            For internal databases with a single writer, auto-increment IDs can be sufficient.
+            For distributed systems, APIs, and public identifiers, UUIDs are often the better choice.
+          </p>
+        </>
+      )
+    },
+    {
+      title: "Are UUIDs Secure?",
+      content: (
+         <>
+          <p>
+            UUID v4 values are generated using random numbers and are safe to expose publicly
+            in most cases. They do not encode sensitive information such as timestamps,
+            IP addresses, or hardware identifiers.
+          </p>
+
+          <p>
+            However, UUIDs are not authentication tokens. They should not be used as secrets
+            or access credentials. Anyone who knows a valid UUID can reference it unless
+            additional authorization checks are in place.
+          </p>
+
+          <p><strong>Use UUIDs for identification, not for security.</strong></p>
+         </>
+      )
+    },
+    {
+      title: "Can UUIDs Collide?",
+      content: (
+         <>
+          <p>
+            Technically, yes. Practically, no.
+          </p>
+
+          <p>
+            The probability of a collision with UUID v4 is so low that it is considered
+            negligible. For example, generating billions of UUIDs per second for many years
+            would still result in an extremely small chance of duplication.
+          </p>
+
+          <p>
+            For all common software applications, UUID v4 collisions are not a concern.
+          </p>
+         </>
+      )
+    },
+    {
+      title: "UUID Format Breakdown",
+      content: (
+        <>
+          <p>A standard UUID looks like this:</p>
+
+          <CodeBlock>550e8400-e29b-41d4-a716-446655440000</CodeBlock>
+
+          <p>Breaking it down:</p>
+          <ul className="list-disc list-inside space-y-2">
+            <li>32 hexadecimal characters</li>
+            <li>4 hyphens for readability</li>
+            <li>128 bits of total data</li>
+            <li>Version and variant bits embedded according to RFC 4122</li>
+          </ul>
+
+          <p>
+            Some systems remove hyphens for storage or transmission. Others convert UUIDs
+            to uppercase or lowercase. All of these representations refer to the same
+            underlying identifier.
+          </p>
+        </>
+      )
+    },
+    {
+      title: "UUID Examples",
+      content: (
+        <>
+            <p>Here are some valid UUID v4 examples:</p>
+
+          <CodeBlock>{`f47ac10b-58cc-4372-a567-0e02b2c3d479
+  9b2c4f7e-8e91-4c92-b2a4-5c7f65e4f2b1
+  c2a1d4e8-3f4b-4e9a-8f67-1d2a3b4c5e6f`}</CodeBlock>
+
+          <p>Each UUID is unique and independent of the others.</p>
+         </>
+      )
+    },
+    {
+      title: "Why Use This UUID Generator?",
+      content: (
+        <>
+          <p>This UUID Generator is designed for developers who want:</p>
+
+          <ul className="list-disc list-inside space-y-2">
+            <li>Instant UUID v4 generation</li>
+            <li>One-click copy</li>
+            <li>Client-side execution</li>
+            <li>No signup or tracking</li>
+            <li>RFC 4122 compliance</li>
+          </ul>
+
+          <p>
+            If you need fast, reliable UUIDs without unnecessary complexity, this tool
+            provides a simple and efficient solution.
+          </p>
+         </>
+      )
+    }
+  ];
+
+  const generateUUID = useCallback(() => {
+    return crypto.randomUUID();
+  }, []);
+
+  // Generate UUID on page load
+  React.useEffect(() => {
+    const newUuid = generateUUID();
+    setUuid(newUuid);
+  }, [generateUUID]);
+
+  const handleGenerate = useCallback(() => {
+    const newUuid = generateUUID();
+    setUuid(newUuid);
+    setCopied(false);
+  }, [generateUUID]);
+
+  const copyToClipboard = useCallback((text) => {
+    navigator.clipboard.writeText(text);
+  }, []);
+
+  const handleCopy = useCallback(() => {
+    copyToClipboard(uuid);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  }, [uuid, copyToClipboard]);
+
+  return (
+    <div className="min-h-screen bg-[#202124] px-4 pt-32 pb-16 text-gray-200 font-circular">
+      <div className="mx-auto max-w-[720px] space-y-10">
+        {/* Header */}
+        <header className="text-center space-y-6">
+          <div className="mx-auto w-14 h-14 rounded-2xl bg-[#2b2d2f] flex items-center justify-center border border-gray-600/30">
+            <Hash className="w-7 h-7 text-[#8800ff]" />
+          </div>
+
+          <h1 className="text-3xl tracking-tight text-white font-circularBold">
+            UUID Generator
+          </h1>
+
+          <p className="text-sm text-gray-400 max-w-md mx-auto">
+            Generate RFC 4122-compliant UUID v4 identifiers instantly. Free, secure, and client-side only.
+          </p>
+        </header>
+
+        {/* Main Tool Card */}
+        <div className="bg-[#353739] border-none rounded-2xl shadow-2xl p-8 space-y-8">
+          {/* UUID Display */}
+          {uuid && (
+            <div className="space-y-3">
+              <label className="text-xs uppercase tracking-widest text-gray-400 ml-1">
+                Generated UUID
+              </label>
+              <div className="flex gap-2 sm:gap-3">
+                <input
+                  type="text"
+                  value={uuid}
+                  readOnly
+                  className="
+                    flex-1 h-12 px-4 rounded-xl bg-[#2b2d2f] border border-gray-600/30
+                    text-white font-mono text-sm
+                    focus:outline-none focus:border-[#8800ff]/50
+                  "
+                />
+                <button
+                  onClick={handleCopy}
+                  className="
+                    h-12 px-4 sm:px-6 rounded-xl bg-[#2b2d2f] border border-gray-600/30
+                    hover:bg-[#323436] transition-all
+                    flex items-center gap-2 text-sm
+                  "
+                >
+                  {copied ? (
+                    <>
+                      <Check className="w-4 h-4 text-emerald-400" />
+                      <span className="hidden sm:inline text-emerald-400">Copied</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-4 h-4 text-gray-400" />
+                      <span className="hidden sm:inline text-gray-300">Copy</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Generate Button */}
+          <button
+            onClick={handleGenerate}
+            className="
+              w-full h-12 rounded-full bg-[#8800ff] text-white font-medium
+              hover:bg-[#9a1aff] transition-all shadow-lg shadow-[#8800ff]/20
+              flex items-center justify-center gap-2
+            "
+          >
+            <RefreshCw className="w-4 h-4" />
+            Generate New UUID
+          </button>
+        </div>
+
+        {/* SEO Content Accordion */}
+        <Accordion items={accordionContent} />
+
+        {/* Footer */}
+        <p className="text-center text-xs text-gray-600">
+          Built with precision • Client-side only • No tracking
+        </p>
+      </div>
+    </div>
+  );
+}

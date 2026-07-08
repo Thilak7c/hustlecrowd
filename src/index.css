@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: 'CircularStd-Book';
+  src: url('../src/assets/fonts/CircularStd-Book.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'CircularStd-Medium';
+  src: url('../src/assets/fonts/CircularStd-Medium.ttf') format('truetype');
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee var(--duration) linear infinite;
+  }
+  
+  .animate-marquee-vertical {
+    animation: marquee-vertical var(--duration) linear infinite;
+  }
+}
+
+html {
+  scroll-behavior: smooth; /* Ensures smooth scrolling */
+  scroll-padding-top: 120px; /* Must match the height of your fixed navbar */
+}
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+}
+
+.marquee-inner {
+  display: flex;
+  animation: marquee 15s linear infinite;
+  min-width: 200%; /* Ensures seamless looping */
+}
+
+
+.bg-dark {
+  @apply bg-[#2C2E2F]
+}
+
+.bg-light {
+  @apply bg-[#f9f9f9]
+}
+
+.body{
+  @apply font-circular;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.container{
+  @apply md:max-w-[1240px] max-w-[750px] mx-auto 
+}
+
+/* Customize the previous and next button */
+.swiper-button-prev,
+.swiper-button-next {
+  width:75px;
+  height:75px;
+  cursor: pointer; 
+}
+
+.swiper-button-prev-1,
+.swiper-button-next-1 {
+  width:75px;
+  height:75px;
+  cursor: pointer; 
+}
+
+.swiper-button-next::after{
+  display: none;
+}
+.swiper-button-prev::after{
+  display: none;
+}
+
+.swiper-button-next-1::after{
+  display: none;
+}
+.swiper-button-prev-1::after{
+  display: none;
+}
+
+/* In your main CSS file (e.g., index.css) */
+.glass-morphism {
+  /* Slightly blurred background */
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+
+  /* Semi-transparent background color (can be adjusted) */
+  background-color: rgba(255, 255, 255, 0.1);
+  
+  /* Optional: Light border to enhance the glass look */
+  border: 1px solid rgba(255, 255, 255, 0.125); 
+}
