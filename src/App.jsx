@@ -1,6 +1,6 @@
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Home, About, Templates, Blogs, Projects, BestPrompts, Tools } from './pages';
+import { Home, About, Templates, Blogs, Projects, Prompts, Tools } from './pages';
 import ScrollToTop from './components/ScrollToTop';
 import { NavbarDark } from './components';
 import ImageHeaderInspectorPage from './pages/image-header-inspector';
@@ -17,7 +17,7 @@ const App = () => {
         <Route exact path="/about-us" element={<About />} />
         <Route exact path="/blogs" element={<Blogs />} />
         <Route exact path="/projects" element={<Projects />} />
-        <Route exact path="/best-prompts" element={<BestPrompts />} />
+        <Route exact path="/prompts" element={<Prompts />} />
         
         {/* Tools */}
         <Route exact path="/tools" element={<Tools />} />

@@ -48,9 +48,9 @@ const Card3 = ({ product }) => {
 
       {/* Content */}
       <div className="p-4 flex flex-col gap-1.5 flex-1">
-        <span className="text-xs text-gray-400 bg-gray-50 border border-gray-100 rounded-full px-2.5 py-0.5 w-fit font-circular">
+        {/* <span className="text-xs text-gray-400 bg-gray-50 border border-gray-100 rounded-full px-2.5 py-0.5 w-fit font-circular">
           {product.model}
-        </span>
+        </span> */}
         <h3 className="text-sm font-circularBold text-gray-900 leading-snug">
           {product.title}
         </h3>

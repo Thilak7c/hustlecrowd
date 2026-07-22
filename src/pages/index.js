@@ -3,7 +3,7 @@ import About from './about';
 import Templates from './templates';
 import Blogs from './blogs';
 import Projects from './projects';
-import BestPrompts from './best-prompts';
+import Prompts from './prompts';
 import Tools from './tools';
 
-export { Home, About, Templates, Blogs, Projects, BestPrompts, Tools }
+export { Home, About, Templates, Blogs, Projects, Prompts, Tools }
