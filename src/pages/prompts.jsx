@@ -1,11 +1,10 @@
-// pages/best-prompts.jsx
+// src/pages/prompts.jsx
 import { useState, useMemo } from 'react';
 import { FooterDark, NavbarDark } from '../components';
 import { Hero4, Products2 } from '../sections';
 import AddPromptModal from '../components/AddPromptModal';
 import { Check } from 'lucide-react';
-
-// Import your static local data file
+import { Helmet } from 'react-helmet-async';
 import { PROMPT_LIST } from '../data/prompts';
 
 const Prompts = () => {
@@ -51,6 +50,19 @@ const Prompts = () => {
 
   return (
     <>
+      <Helmet>
+        <title>AI Prompts Directory | HustleCrowd</title>
+        <meta
+          name="description"
+          content="Browse a curated directory of AI prompts for ChatGPT, Claude, and more. Search, filter, and submit your own prompts."
+        />
+        {/* Optional but good for SEO/social sharing */}
+        <link rel="canonical" href="https://yoursite.com/prompts" />
+        <meta property="og:title" content="AI Prompts Directory | HustleCrowd" />
+        <meta property="og:description" content="Browse a curated directory of AI prompts for ChatGPT, Claude, and more." />
+        <meta property="og:url" content="https://yoursite.com/prompts" />
+      </Helmet>
+
       <NavbarDark theme="light" />
 
       <Hero4
