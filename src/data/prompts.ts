@@ -28,7 +28,7 @@ export const PROMPT_LIST = [
         title: "Celebrity Action Figure Toy Box",
         prompt: "Create image. Create a toy of Elon Musk. Stand pose, from head to toe. Let it be an action figure and make it in the blisters. Next to the figure, there should be the equipment, each in their individual blisters: 1) A miniature SpaceX rocket, sleek and white, referencing his space exploration mission. 2) A miniature Tesla Cybertruck, silver and angular, referencing his electric vehicle empire. 3) A blue Twitter/X bird logo badge, referencing his controversial takeover of the social media platform. Don't repeat the equipment under any circumstance. The card holding the blister should be in a sleek silver and black tech-style design with stars in the background, referencing space. Also, on top of the box, write 'Technoking of Earth' and underneath it, 'Presented by AI Me'. The figure should wear his signature plain black t-shirt and dark jeans, with his signature smirk expression. The figure and equipment must all be inside blisters. Visualize this in a realistic way.",
         type: "Image",
-        desc: "Generate a hyper-realistic action figure of Cristiano Ronaldo in a retail blister pack, complete with iconic accessories and a bold Portugal-themed card backing.",
+        desc: "Generate a hyper-realistic action figure packaging of a famous person.",
         image: "https://cdn-images-1.medium.com/max/900/1*H91xoRRLUb2GrQvEJKrzxg.png",
     },
     {
@@ -36,7 +36,7 @@ export const PROMPT_LIST = [
         title: "Product Display Prompt",
         prompt: "Create a premium commercial food packaging shot of a detailed black rice packet placed on a wooden surface, angled slightly, next to a small and shallow wooden bowl filled with black rice. Nothing in background. Make the bowl very close the packaging. The rice packaging remains fully detailed with branding, product imagery, seals, and design graphics visible. Lighting: cinematic soft key light from left, gentle highlight on rice grains. Atmosphere should be dark themed studio. Add some very subtle studio ambient lighting on the back so that the product stands out in the dark. Shot on ARRI Alexa Mini LF, 75mm anamorphic lens, ultra-realistic rice grain detail, shallow depth of field separating bowl from background, vibrant but natural colors. Image Resolution should be 16:9",
         type: "Image",
-        desc: "Generate a hyper-realistic action figure of Cristiano Ronaldo in a retail blister pack, complete with iconic accessories and a bold Portugal-themed card backing.",
+        desc: "Create a studio grade commercial food packaging photography",
         image: "https://cdn-images-1.medium.com/v2/resize:fit:900/1*dfeENHWIC2sBrQLpR_f96g.png",
     },
 ];
