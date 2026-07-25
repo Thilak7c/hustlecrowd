@@ -4,8 +4,9 @@ import { Search, Plus, Sparkles } from 'lucide-react';
 const Hero4 = ({ searchTerm, onSearchChange, onAddPrompt, promptCount }) => {
   return (
     <div className="relative bg-gray-50 pt-28 pb-16 px-4 text-center overflow-hidden">
-      {/* Subtle gradient blob */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-purple-200 opacity-20 blur-3xl rounded-full pointer-events-none" />
+      {/* Subtle gradient blob — fixed size, no growth */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-purple-200 opacity-20 blur-3xl rounded-full pointer-events-none transition-none animate-none will-change-auto shrink-0" />
+
 
       <div className="relative max-w-2xl mx-auto">
         {/* Eyebrow */}
