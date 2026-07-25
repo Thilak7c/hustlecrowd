@@ -37,6 +37,6 @@ export const PROMPT_LIST = [
         prompt: "Create a premium commercial food packaging shot of a detailed black rice packet placed on a wooden surface, angled slightly, next to a small and shallow wooden bowl filled with black rice. Nothing in background. Make the bowl very close the packaging. The rice packaging remains fully detailed with branding, product imagery, seals, and design graphics visible. Lighting: cinematic soft key light from left, gentle highlight on rice grains. Atmosphere should be dark themed studio. Add some very subtle studio ambient lighting on the back so that the product stands out in the dark. Shot on ARRI Alexa Mini LF, 75mm anamorphic lens, ultra-realistic rice grain detail, shallow depth of field separating bowl from background, vibrant but natural colors. Image Resolution should be 16:9",
         type: "Image",
         desc: "Generate a hyper-realistic action figure of Cristiano Ronaldo in a retail blister pack, complete with iconic accessories and a bold Portugal-themed card backing.",
-        image: "https://cdn-images-1.medium.com/v2/resize:fit:2600/1*dfeENHWIC2sBrQLpR_f96g.png",
+        image: "https://cdn-images-1.medium.com/v2/resize:fit:900/1*dfeENHWIC2sBrQLpR_f96g.png",
     },
 ];
