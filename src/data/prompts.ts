@@ -33,7 +33,7 @@ export const PROMPT_LIST = [
     },
     {
         id: 5,
-        title: "Product Display Prompt",
+        title: "Studio Grade Product Display Photography",
         prompt: "Create a premium commercial food packaging shot of a detailed black rice packet placed on a wooden surface, angled slightly, next to a small and shallow wooden bowl filled with black rice. Nothing in background. Make the bowl very close the packaging. The rice packaging remains fully detailed with branding, product imagery, seals, and design graphics visible. Lighting: cinematic soft key light from left, gentle highlight on rice grains. Atmosphere should be dark themed studio. Add some very subtle studio ambient lighting on the back so that the product stands out in the dark. Shot on ARRI Alexa Mini LF, 75mm anamorphic lens, ultra-realistic rice grain detail, shallow depth of field separating bowl from background, vibrant but natural colors. Image Resolution should be 16:9",
         type: "Image",
         desc: "Create a studio grade commercial food packaging photography",

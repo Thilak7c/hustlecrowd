@@ -22,7 +22,7 @@ const Hero4 = ({ searchTerm, onSearchChange, onAddPrompt, promptCount }) => {
         </p>
 
         {/* Search + Add row */}
-        <div className="flex gap-2 max-w-xl mx-auto">
+        {/* <div className="flex gap-2 max-w-xl mx-auto">
           <div className="relative flex-1">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
             <input
@@ -39,7 +39,7 @@ const Hero4 = ({ searchTerm, onSearchChange, onAddPrompt, promptCount }) => {
           >
             <Plus className="w-4 h-4" /><h1>Add Prompt</h1> 
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
