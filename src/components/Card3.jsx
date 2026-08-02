@@ -1,11 +1,12 @@
-// components/Card3.jsx
+// src/components/Card3.jsx
 import { useState } from 'react';
 import { Clipboard, Check } from 'lucide-react';
 
-const Card3 = ({ product }) => {
+const Card3 = ({ product, onClick }) => {
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = async () => {
+  const handleCopy = async (e) => {
+    e.stopPropagation(); // prevent card click opening modal
     try {
       await navigator.clipboard.writeText(product.prompt);
       setCopied(true);
@@ -16,8 +17,10 @@ const Card3 = ({ product }) => {
   };
 
   return (
-    <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col font-circular">
-
+    <div
+      onClick={() => onClick?.(product)}
+      className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col font-circular cursor-pointer"
+    >
       {/* Image */}
       <div className="relative">
         <img
@@ -31,7 +34,7 @@ const Card3 = ({ product }) => {
           {product.type || 'AI'}
         </span>
 
-        {/* Copy button */}
+        {/* Quick-copy button — still works without opening modal */}
         <button
           onClick={handleCopy}
           aria-label="Copy prompt"
@@ -48,9 +51,6 @@ const Card3 = ({ product }) => {
 
       {/* Content */}
       <div className="p-4 flex flex-col gap-1.5 flex-1">
-        {/* <span className="text-xs text-gray-400 bg-gray-50 border border-gray-100 rounded-full px-2.5 py-0.5 w-fit font-circular">
-          {product.model}
-        </span> */}
         <h3 className="text-sm font-circularBold text-gray-900 leading-snug">
           {product.title}
         </h3>
@@ -58,7 +58,6 @@ const Card3 = ({ product }) => {
           {product.desc || ''}
         </p>
       </div>
-
     </div>
   );
 };
