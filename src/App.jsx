@@ -6,6 +6,7 @@ import ScrollToTop from './components/ScrollToTop';
 import { NavbarDark } from './components';
 import ImageHeaderInspectorPage from './pages/image-header-inspector';
 import UUIDGeneratorPage from './pages/uuid-generator-page';
+import HustleCrowdLanding from './pages/new';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <ScrollToTop />
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/phantom" element={<HustleCrowdLanding />} />
           <Route exact path="/templates" element={<Templates />} />
           <Route exact path="/about-us" element={<About />} />
           <Route exact path="/blogs" element={<Blogs />} />

@@ -10,6 +10,7 @@ import HeroDark from "./HeroDark";
 import HeroDark2 from "./HeroDark2";
 import HeroDark3 from "./HeroDark3";
 import HeroDark4 from "./HeroDark4";
+import HeroDark5 from "./HeroDark5";
 
 import Products from "./Products";
 import Products2 from "./Products2";
@@ -38,15 +39,19 @@ export {
     Cards2,
     Cards2Dark,
     CardsSlider,
+    
     Hero,
     Hero2,
     Hero3,
     Hero4,
     Hero5,
+
     HeroDark,
     HeroDark2,
     HeroDark3,
     HeroDark4,
+    HeroDark5,
+
     Products,
     Products2,
     CTA,
