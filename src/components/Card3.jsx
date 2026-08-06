@@ -24,7 +24,7 @@ const Card3 = ({ product, onClick }) => {
       {/* Image */}
       <div className="relative">
         <img
-          className="w-full aspect-video object-cover"
+          className="w-full aspect-[4/3] object-cover"
           src={product.image || 'https://via.placeholder.com/600x400?text=AI+Prompt'}
           alt={product.title}
         />

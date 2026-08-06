@@ -13,7 +13,7 @@ export const PROMPT_LIST = [
         prompt: "Create an ultra-chunky, ultra-minimal 3D miniature of [ADD_YOUR_LANDMARK_HERE] in the style of soft 3D icons used on modern tech landing pages, with extremely simplified geometry prioritizing bold silhouette, mass, and volumetric presence over architectural accuracy—absolutely no thin elements, sharp edges, fine architectural detail, realism, texture maps, or surface noise, with all shapes appearing molded from a single solid clay-like or rubbery material. Use very low polygon count with large solid blocks only, ensuring all buildings are fully volumetric with visible depth, thickness, and side walls (never flat facades or planes), where buildings are reduced to bold rounded volumes with thick slab or dome roofs, short wide towers, and windows/doors as shallow indents only—each building must be constructed as a primary body volume with secondary volumes attached (towers, roof blocks), never appearing as a single front-facing slab, and must include visible side walls, roof thickness, and rear mass implied by depth. The landmark rests on a thin square ground plate with softly rounded corners and minimal thickness, using clean subtle realism (concrete, stone, grass, or mosaic) that supports without competing for attention, finished in smooth matte clay or soft satin material with uniform coverage, soft shading only, no gloss or seams, using a minimal palette of 2–4 warm slightly pastel tones for the building with neutral muted ground colors and clear contrast. Apply soft studio lighting with diffused highlights, gentle ambient occlusion emphasizing depth and thickness, and soft contact shadow between building and ground, shot from a 3/4 perspective or soft isometric angle slightly elevated to reveal side depth (not just front face) with centered composition and negative space, creating a friendly, playful, modern, premium mood that feels like a chunky 3D icon or collectible architectural toy. Render in high resolution with clean silhouette, smooth edges, no text, people, logos, or photorealism, on a transparent background, ensuring the final model reads as a fully 3D object with clear depth, mass, and volume in every structure—not a flat facade.",
         type: "Image",
         desc: "Ultra-minimal isometric 3D diorama of any world landmark.",
-        image: "https://cdn-images-1.medium.com/max/900/1*E6mDVzjyQEs8MCgFVETX0g.png",
+        image: "https://cdn-images-1.medium.com/v2/resize:fit:900/1*77V_c64LHLDxkg1VwScobA.png",
     },
     {
         id: 3,
@@ -38,5 +38,13 @@ export const PROMPT_LIST = [
         type: "Image",
         desc: "Create a dark-themed studio grade commercial food packaging photography",
         image: "https://cdn-images-1.medium.com/v2/resize:fit:900/1*dfeENHWIC2sBrQLpR_f96g.png",
+    },
+    {
+        id: 6,
+        title: "Travel Poster",
+        prompt: "Create a stylized travel poster/graphic collage for [country]. The main theme should be a stylish international tourist visiting [country], clearly presented as a traveler rather than a local. Show a tourist dressed in modern tourist fashion, with details such as a camera, backpack, sunglasses, map or suitcase, exploring the culture and atmosphere of [country]. The face is 100% identical to the face in the attached image. Place the tourist in a dynamic composition surrounded by iconic architecture, streets, landscapes, landmarks, transportation, food, signage, and cultural elements related to the country. Combine realistic character details with a graphic collage background made of layered paper textures, torn poster edges, sticker elements, grayscale dots, editorial typography, and bold geometric shapes. Use authentic visual motifs [country], but keep the tourist's look and style fashionable all over the world and clearly alien to the surrounding environment. Add a large, readable headline: “LOST IN [country].” A modern, artistic, aesthetic travel poster of premium class, balanced layout, composition worthy of printing. --ar 2:3",
+        type: "Image",
+        desc: "Create a vintage styled travel poster as yourself as the main character",
+        image: "https://cdn-images-1.medium.com/max/900/1*wMEWr0mAdWFuQCoxWdLocw.png",
     },
 ];
