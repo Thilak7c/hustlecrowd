@@ -1,14 +1,22 @@
 // Hero4.jsx
 import { Search, Plus, Sparkles } from 'lucide-react';
 
-const Hero4 = ({ searchTerm, onSearchChange, onAddPrompt, promptCount }) => {
+const Hero4 = ({
+  searchTerm,
+  onSearchChange,
+  onAddPrompt,
+  promptCount,
+  categories = [],
+  selectedCategory = 'All',
+  onCategoryChange,
+}) => {
   return (
     <div className="relative bg-gray-50 pt-28 pb-8 px-4 text-center overflow-hidden">
       {/* Subtle gradient blob — fixed size, no growth */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-purple-200 opacity-20 blur-3xl rounded-full pointer-events-none transition-none animate-none will-change-auto shrink-0" />
 
 
-      <div className="relative max-w-2xl mx-auto">
+      <div className="relative max-w-2xl mx-auto mb-5">
         {/* Eyebrow */}
         <span className="inline-flex items-center gap-1.5 text-xs font-circularBold text-purple-600 bg-purple-50 border border-purple-200 rounded-full px-3 py-1 mb-6 uppercase tracking-wide">
           <Sparkles className="w-3 h-3" /> AI Prompt Directory
@@ -18,7 +26,7 @@ const Hero4 = ({ searchTerm, onSearchChange, onAddPrompt, promptCount }) => {
           The best <span className="text-purple-600">AI prompts</span>,<br />all in one place.
         </h1>
 
-        <p className="text-gray-400 text-base mb-10 max-w-md mx-auto leading-relaxed font-circular">
+        <p className="text-gray-400 text-base mb-5 max-w-md mx-auto leading-relaxed font-circular">
           Discover, copy, and share prompts for image, video, and text generation.
         </p>
 
@@ -41,6 +49,28 @@ const Hero4 = ({ searchTerm, onSearchChange, onAddPrompt, promptCount }) => {
             <Plus className="w-4 h-4" /><h1>Add Prompt</h1> 
           </button>
         </div> */}
+
+        {/* Category filter pills */}
+        {categories.length > 1 && (
+          <div className="flex flex-wrap justify-center gap-2">
+            {categories.map((cat) => {
+              const isActive = cat === selectedCategory;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => onCategoryChange?.(cat)}
+                  className={`text-xs font-circularBold px-3.5 py-1.5 rounded-full border transition-all duration-150
+                    ${isActive
+                      ? 'bg-purple-600 border-purple-600 text-white shadow-sm'
+                      : 'bg-white border-gray-200 text-gray-500 hover:border-purple-300 hover:text-purple-600'
+                    }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

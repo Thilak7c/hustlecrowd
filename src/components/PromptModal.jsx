@@ -77,7 +77,7 @@ const PromptModal = ({ prompt, onClose }) => {
 
             {/* Title */}
             <div>
-              <h2 className="text-lg md:text-xl font-bold text-[#111111] leading-snug font-circular mb-2">
+              <h2 className="text-lg md:text-xl font-semibold text-[#111111] leading-snug font-circular mb-2">
                 {prompt.title}
               </h2>
               {prompt.desc && (
@@ -120,7 +120,7 @@ const PromptModal = ({ prompt, onClose }) => {
             {/* Copy button */}
             <button
               onClick={handleCopy}
-              className={`w-full flex items-center justify-center gap-2 py-3 rounded-[100px] text-sm font-bold font-circular transition-all ${
+              className={`w-full flex items-center justify-center gap-2 py-3 rounded-[100px] text-sm font-circular transition-all ${
                 copied
                   ? 'bg-green-500/15 text-green-600 border border-green-500/30'
                   : 'bg-[#8800ff] text-white hover:bg-[#9a1aff]'

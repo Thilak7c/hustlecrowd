@@ -47,4 +47,13 @@ export const PROMPT_LIST = [
         desc: "Create a vintage styled travel poster as yourself as the main character",
         image: "https://cdn-images-1.medium.com/max/900/1*wMEWr0mAdWFuQCoxWdLocw.png",
     },
+    {
+        id: 7,
+        title: "Flight Hack #1: Find Cheapest Fare",
+        prompt: "Analyze this flight route [FROM_PLACE -> TO_PLACE] using historical fare data, seasonal demand patterns, airline inventory release cycles, and booking curve behavior. Identify the statistically optimal booking window, explain what forces are currently pushing prices up or down, and estimate the lowest realistic fare range I could expect and find the cheapest month to book in the entire year.",
+        type: "Flight",
+        desc: "Find Cheapest Fare between these 2 airports",
+        image: "https://cdn-images-1.medium.com/v2/resize:fit:900/1*nvuDAuO3mXS48r1kRhrvfQ.png",
+    },
+
 ];
